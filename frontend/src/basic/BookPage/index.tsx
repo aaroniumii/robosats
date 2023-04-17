@@ -18,7 +18,7 @@ const BookPage = (): JSX.Element => {
     fetchFederationBook,
     windowSize,
     setDelay,
-    setOrder,
+    clearOrder,
   } = useContext<UseAppStoreType>(AppContext);
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -35,22 +35,11 @@ const BookPage = (): JSX.Element => {
     fetchFederationBook();
   }, []);
 
-  const onViewOrder = function () {
-    setOrder(undefined);
-    setDelay(10000);
-  };
-
-  const onOrderClicked = function (id: number) {
+  const onOrderClicked = function (id: number, shortAlias: string) {
     if (robot.avatarLoaded) {
-      navigate('/order/' + id);
-<<<<<<< HEAD
-      onViewOrder();
-=======
-      setPage('order');
-      setCurrentOrder(id);
-      setOrder(undefined);
+      clearOrder();
       setDelay(10000);
->>>>>>> Add federation table, exchange model and other UI elements of the federation layer (#379)
+      navigate(`/order/${shortAlias}/${id}`);
     } else {
       setOpenNoRobot(true);
     }

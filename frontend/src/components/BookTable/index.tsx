@@ -63,7 +63,8 @@ const BookTable = ({
   showNoResults = true,
   onOrderClicked = () => null,
 }: BookTableProps): JSX.Element => {
-  const { book, fetchFederationBook, fav, setFav, setFocusedCoordinator, setOpen, baseUrl } = useContext<UseAppStoreType>(AppContext);
+  const { book, fetchFederationBook, fav, setFav, setFocusedCoordinator, setOpen, baseUrl } =
+    useContext<UseAppStoreType>(AppContext);
 
   const { t } = useTranslation();
   const theme = useTheme();
